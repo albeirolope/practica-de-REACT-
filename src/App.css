@@ -1,38 +1,91 @@
-.App {
-  text-align: center;
+/* App.css */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app {
+font-family: 'Orbitron', monospace;
+background: #0a0a0a;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 20px;
+overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+display: flex;
+flex-direction: column;
+gap: 30px;
+max-width: 500px;
+width: 100%;
+z-index: 10;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.neon-card {
+background: rgba(20, 0, 40, 0.8);
+border: 2px solid;
+border-radius: 15px;
+padding: 30px;
+text-align: center;
+position: relative;
+backdrop-filter: blur(10px);
+animation: borderGlow 3s ease-in-out infinite alternate;
 }
 
-.App-link {
-  color: #61dafb;
+.neon-card.cyan {
+border-color: #00ffff;
+box-shadow: 
+0 0 20px #00ffff,
+0 0 40px #00ffff,
+inset 0 0 20px rgba(0, 255, 255, 0.1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.neon-card.magenta {
+border-color: #ff00ff;
+box-shadow: 
+0 0 20px #ff00ff,
+0 0 40px #ff00ff,
+inset 0 0 20px rgba(255, 0, 255, 0.1);
+}
+
+@keyframes borderGlow {
+0% {
+box-shadow: 
+    0 0 15px currentColor,
+    0 0 30px currentColor,
+    inset 0 0 15px rgba(255, 255, 255, 0.1);
+}
+100% {
+box-shadow: 
+    0 0 25px currentColor,
+    0 0 50px currentColor,
+    inset 0 0 25px rgba(255, 255, 255, 0.2);
+}
+}
+
+@keyframes heartbeat {
+0%, 100% {
+transform: scale(1);
+}
+50% {
+transform: scale(1.1);
+}
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+.container {
+gap: 20px;
+}
+
+.neon-card {
+padding: 20px;
+}
 }

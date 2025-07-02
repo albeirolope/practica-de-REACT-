@@ -1,0 +1,69 @@
+/* components/LoveCounter.css */
+.heart-container {
+margin: 20px 0;
+}
+
+.neon-heart {
+font-size: 4rem;
+color: #ff1744;
+filter: drop-shadow(0 0 20px #ff1744);
+animation: heartbeat 2s ease-in-out infinite;
+}
+
+.love-text {
+color: #ffffff;
+font-size: 1.1rem;
+margin: 15px 0 5px 0;
+text-shadow: 0 0 5px #ffffff;
+}
+
+.counter {
+display: flex;
+justify-content: center;
+gap: 20px;
+margin: 20px 0;
+flex-wrap: wrap;
+}
+
+.time-unit {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.time-number {
+font-size: 2rem;
+font-weight: 900;
+color: #00ff00;
+text-shadow: 0 0 15px #00ff00;
+margin-bottom: 5px;
+}
+
+.time-label {
+font-size: 0.9rem;
+color: #ffffff;
+text-shadow: 0 0 5px #ffffff;
+}
+
+@keyframes heartbeat {
+0%, 100% {
+transform: scale(1);
+}
+50% {
+transform: scale(1.1);
+}
+}
+
+@media (max-width: 600px) {
+.neon-heart {
+font-size: 3rem;
+}
+
+.time-number {
+font-size: 1.5rem;
+}
+
+.counter {
+gap: 15px;
+}
+}
