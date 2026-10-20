@@ -1,5 +1,5 @@
 // components/LoveCounter.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import './LoveCounter.css';
 
 const LoveCounter = () => {
@@ -10,8 +10,8 @@ minutes: 0,
 seconds: 0
 });
 
-// ⚠️ CAMBIA ESTA FECHA por la fecha real de cuando se enamoraron
-const startDate = new Date('2025-05-09T00:00:00');
+// ✅ Define la fecha fija con useMemo para que no cambie en cada render
+const startDate = useMemo(() => new Date('2025-05-09T00:00:00'), []);
 
 useEffect(() => {
 const updateCounter = () => {
@@ -30,7 +30,7 @@ updateCounter();
 const interval = setInterval(updateCounter, 1000);
 
 return () => clearInterval(interval);
-}, [startDate]);
+}, [startDate]); // ✅ ahora es estable gracias a useMemo
 
 return (
 <div className="neon-card magenta">

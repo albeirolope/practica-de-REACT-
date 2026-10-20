@@ -1,5 +1,5 @@
 // components/ParticleBackground.jsx
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'; // ✅ vuelve a importar React y useEffect
 import './ParticleBackground.css';
 
 const ParticleBackground = () => {
